@@ -1,0 +1,18 @@
+---
+layout: post
+title: Footstep of a rookie developer
+---
+
+h1. {{ page.title }}
+
+p(meta). 2 July 2014 - Shanghai
+
+Well, just setup my first weblog on Github.
+As a 34 years old man, I just decided to dive in the coding world.
+_"Write the code, change the world"_
+Yes it is. We are now in the middle of *Infomation age*, this time we can own the power to *Make* things by just sitting in front of a laptop and hit some strokes.
+I don't think learning is such a pain. Having some basic knowledge of programming in high school, I was able to code sth. useful by googling:) *AND THAT IS FUN!* Check out some of my work at "Github":https://github.com/soimy
+So I setup a blog on github, just trying to record my steps on the road to a developer.
+!/images/footstep-on-the-moon.jpg!
+
+
