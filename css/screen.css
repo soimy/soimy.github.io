@@ -17,7 +17,7 @@ html, body {
 
 body {
   background-color: white;
-  font: 13.34px helvetica, arial, clean, sans-serif;
+  font: 14px 'Lato', helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
 }
@@ -51,6 +51,49 @@ table {
   font: 100%;
 }
 
+dl {
+	border: 1px dot #ccc;
+	padding: 0.5em;
+}
+
+dt {
+    float: left;
+	clear: left;
+	width: 100px;
+	text-align: right;
+	font-weight: bold;
+	color: green;
+}
+
+dt:after {
+	content: " :";
+}
+
+dd {
+    margin: 0 0 0 110px;
+    padding: 0 0 0.5em 0;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}
 /*****************************************************************************/
 /*
 /* Home
@@ -80,7 +123,7 @@ ul.posts {
 
 .site {
   font-size: 110%;
-  text-align: justify;
+  text-align: left;
   width: 42em;
   margin: 3em auto 2em auto;
   line-height: 1.5em;
@@ -113,6 +156,13 @@ ul.posts {
 
   .site .meta {
     color: #aaa;
+	font-size: 80%;
+	/*margin-left: 2em;*/
+  }
+  .site .meta:before {
+	content: url('/images/timeicon.png');
+    vertical-align: -0.3em;
+	margin-right: .5em;
   }
 
   .site .footer {
@@ -156,8 +206,9 @@ ul.posts {
 
   #post pre {
     border: 1px solid #ddd;
-    background-color: #eef;
+	background-color: #fdf6e3;
     padding: 0 .4em;
+    line-height: 1.1em;
   }
 
   #post ul,
@@ -167,9 +218,10 @@ ul.posts {
 
   #post code {
     border: 1px solid #ddd;
-    background-color: #eef;
-    font-size: 85%;
-    padding: 0 .2em;
+	background-color: #fdf6e3;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 12px;
+    padding: 0 .3em;
   }
 
     #post pre code {

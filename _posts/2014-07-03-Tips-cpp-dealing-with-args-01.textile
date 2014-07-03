@@ -1,0 +1,81 @@
+---
+layout: post
+title: Tips[CPP] Dealing with args [Part.1]
+categories: Coding Tips
+tags: getopt c++ argument workaround
+---
+
+h1. {{ page.title }}
+
+p(meta). 3 July 2014 - Shanghai
+
+Everyone start to learn coding by helloworld.c :) Yes, it's the basic of digital daylife:
+*Command line*
+
+When dealing commandline style coding, every one need to manage the skill of controlling different kind of argument. It is really a dirty job by analyze
+{% highlight cpp %}
+int main(int argc, char *argv[])
+{% endhighlight %}
+
+But if you are familiar with POSIX style console command, it's argument definitions and help are so elegent and stylish.
+!/images/2014-07-03/ssh-argument.png!
+
+Luckily we have a standard GNU C Library function called @"getopt()":http://www.gnu.org/software/libc/manual/html_node/Getopt.html@
+
+In short, we just need to add the include:
+
+{% highlight cpp %}
+#include <getopt.h>
+{% endhighlight %}
+
+Then start coding with something like:
+
+{% highlight cpp%}
+int c;
+opterr = 0;
+while ((c = getopt (argc, argv, "abc:")) != -1)
+{
+    switch (c)
+    {
+        case 'a':
+            aflag = 1;
+            break;
+        case 'b':
+            bflag = 1;
+            break;
+        case 'c':
+            cvalue = atoi(optarg);
+            break;
+        case '?':
+		case ':':
+            if (optopt == 'c')
+                fprintf (stderr, "Option -%c requires an argument.\n", optopt);
+            else if (isprint (optopt))
+                fprintf (stderr, "Unknown option `-%c'.\n", optopt);
+            else
+                fprintf (stderr, "Unknown option character `\\x%x'.\n",optopt);
+            return 1;
+        default:
+            abort ();
+    }
+}
+{% endhighlight %}
+
+The third argument in funtion @getopt@ defines the commandline option you need; single charactor means it is a switch with no extra argument is needed, on the other hand, if you need extra argument, put a ':' after your option charactor.
+
+Within the @switch@ statment, you may notice the following case:
+
+- case '?' := If getopt finds an option character in @argv@ that was not included in @options@, or a missing option argument, it returns ‘?’ and sets the external variable @optopt@ to the actual option character.
+- case ':' := getopt returns ‘:’ instead of ‘?’ to indicate a missing option argument.
+
+If you carefully read through the document, you will know the library will expose the following global variables:
+
+- optopt := When getopt encounters an unknown option character or an option with a missing required argument, it stores that option character in this variable. You can use this for providing your own diagnostic messages.
+- optind := This variable is set by getopt to the index of the next element of the argv array to be processed. Once getopt has found all of the option arguments, you can use this variable to determine where the remaining non-option arguments begin. The initial value of this variable is 1.
+- opterr := If the value of this variable is nonzero, then getopt prints an error message to the standard error stream if it encounters an unknown option character or an option with a missing required argument. This is the default behavior. If you set this variable to zero, getopt does not print any messages, but it still returns the character ? to indicate an error.
+- optarg := This variable is set by getopt to point at the value of the option argument, for those options that accept arguments.
+
+Sounds like a beautiful story huh? But it do not have a happy ending.
+I will discuss the matter and workaround in the next thread.
+
+
