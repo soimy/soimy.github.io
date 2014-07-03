@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 But if you are familiar with POSIX style console command, it's argument definitions and help are so elegent and stylish.
 !/images/2014-07-03/ssh-argument.png!
 
-Luckily we have a standard GNU C Library function called @"getopt()":http://www.gnu.org/software/libc/manual/html_node/Getopt.html@
+Luckily we have a standard GNU C Library function called "getopt()":http://www.gnu.org/software/libc/manual/html_node/Getopt.html
 
 In short, we just need to add the include:
 
