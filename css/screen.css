@@ -16,14 +16,15 @@ html, body {
 }
 
 body {
-  background-color: white;
+  /*background-color: white;*/
+  background-image: url('/images/paper_bg.jpg');
   font: 14px 'Lato', helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
+  font-size: 120%;
 }
 
 h1 {
@@ -75,7 +76,7 @@ dd {
 }
 
 blockquote {
-  background: #f9f9f9;
+  background: rgba(250,250,250,0.5);
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
@@ -168,7 +169,7 @@ ul.posts {
   .site .footer {
     font-size: 80%;
     color: #666;
-    border-top: 4px solid #eee;
+    border-top: 3px solid rgba(250,250,250,0.5);
     margin-top: 2em;
     overflow: hidden;
   }
@@ -184,7 +185,7 @@ ul.posts {
 
     .site .footer .rss {
       margin-top: 1.1em;
-      margin-right: -.2em;
+      margin-right: .3em;
       float: right;
     }
 
@@ -206,7 +207,7 @@ ul.posts {
 
   #post pre {
     border: 1px solid #ddd;
-	background-color: #fdf6e3;
+	/*background-color: #fdf6e3;*/
     padding: 0 .4em;
     line-height: 1.1em;
   }
@@ -225,7 +226,8 @@ ul.posts {
   }
 
     #post pre code {
-      border: none;
+	  border: none;
+	  background-color: transparent;
     }
 
   /* terminal */
