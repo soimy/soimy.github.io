@@ -18,7 +18,7 @@ html, body {
 body {
   /*background-color: white;*/
   background-image: url('/images/paper_bg.jpg');
-  font: 14px 'Lato', helvetica, arial, clean, sans-serif;
+  font: 14px 'lato', helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
 }
@@ -112,8 +112,8 @@ ul.posts {
 
   ul.posts span {
     color: #aaa;
-    font-family: Monaco, "Courier New", monospace;
-    font-size: 80%;
+    font-family: 'ubuntu_mono', Monaco, "Courier New", monospace;
+    font-size: 90%;
   }
 
 /*****************************************************************************/
@@ -220,9 +220,9 @@ ul.posts {
   #post code {
     border: 1px solid #ddd;
 	background-color: #fdf6e3;
-    font-family: Monaco, "Courier New", monospace;
-    font-size: 12px;
-    padding: 0 .3em;
+    font-family: "ubuntu_mono", Monaco, "Courier New", monospace;
+    font-size: 14px;
+    /*padding: 0 .1em;*/
   }
 
     #post pre code {
