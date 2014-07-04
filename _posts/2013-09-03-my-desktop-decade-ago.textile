@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Found a screenshot of my desktop... decade ago
 categories: Misc
 tags: screenshot desktop linux redhat 2003
@@ -20,3 +20,4 @@ Yes, that time I just gratuated from "SJTU":http://www.sjtu.edu.cn/ and working 
 Compare to the desktop environment now-a-days, it still look so elegent and effecient. My favorate linux distro. is *Debian* and like *FVWM2* desktop most.
 
 How many 10 years do we still have?
+
