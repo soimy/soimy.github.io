@@ -1,0 +1,94 @@
+---
+layout: post
+title: Dealing with args using getopt() [Part.2]
+categories: Coding Tips
+tags: getopt c++ argument workaround
+---
+
+h1. {{ page.title }}
+
+p(meta). 4 July 2014 - Shanghai
+
+In my previous post "Dealing with args with getopt()[Part.1]":{% post_url 2014-07-03-Tips-cpp-dealing-with-args-01 %}, I was very happy to find out a standard GNU library called @getopt()@ which can help me out from the dirty job with commandline options.
+
+Everything just work fine when you type in the options and arguments correctly. *BUT* the world is full of exceptions :( Below is my own commandline option setup:
+
+bc(terminal). Usage : soundView [-h] [-v volume] [-t Max_dB] [-f Floor_dB] filename
+
+Let's say I miss the @volume@ argument after option @-v@, @getopt@ won't return @':'@ as promised. What actually happened is the next option @-t@ was feeded as an argument for option @-v@, so the options after @-v@ is totaly messed up! My code is tring to assign my variable: @float volume = atof("-t")@ which always return *0*.
+
+Luckly I was able to get help from "Stackoverflow":http://stackoverflow.com/questions/2219562/using-getopt-to-parse-program-arguments-in-c . It's a solution by manualy verify the @optarg@ whether the first charator is @"-"@ which solve my problem.
+
+This is what my code piece finally looks like:
+
+{% highlight cpp linenos%}
+//
+// Commandline argument processing
+//
+if(argc < 2){
+    help();
+    return 1;
+}
+
+// Setup default argument
+paUserData.max_db = 80;
+paUserData.floor_db = -180;
+paUserData.volume = 0.2;
+
+int optionChar, prev_ind;
+while(prev_ind = optind, (optionChar = getopt(argc,argv,"hv:t:f:"))!=EOF){
+    if(optind == prev_ind + 2 && *optarg == '-' && atof(optarg)==0){
+        optionChar = ':';
+        -- optind;
+    }
+    switch(optionChar){
+        case 'v':
+            paUserData.volume = atof(optarg);
+            cout << "Volume     :" << paUserData.volume << endl;
+            break;
+        case 'f':
+            paUserData.floor_db = atoi(optarg);
+            cout << "Floor dB   :" << paUserData.floor_db<< endl;
+            break;
+        case 't':
+            paUserData.max_db = atoi(optarg);
+            cout << "Max dB     :" << paUserData.max_db<< endl;
+            break;
+        case '?':
+        case ':':
+            cerr << "Argument error !" << endl;
+        case 'h':
+            help();
+            return 1;
+            break;
+    }
+}
+
+char* fileName;
+if(optind < argc){
+    fileName = argv[optind];
+} else {
+    cout << "Sound file name must be specified." << endl;
+    return 1;
+}
+
+{% endhighlight %}
+
+Still something to notice while reading the code above. First is the @if@ statment
+
+{% highlight cpp %}
+if(optind == prev_ind + 2 && *optarg == '-' && atof(optarg)==0){
+    optionChar = ':';
+    -- optind;
+}
+{% endhighlight %}
+
+There are *three* conditions:
+
+# If current @optind@ step 2 over previous means the current option is expecting argument.
+# the first charactor of the argument eq. "-".
+# make sure it is not a negative number :)
+
+While all conditions match, manually set returning @optionChar@ to ":" and step @optind@ back @1@, so the following options won't be messed up.
+
+Another things to be noticed, the last args index left after processed by @getopt@ is the filename we supplied. Currently pointed by @optind@, use @argv[optind]@ to acquire it.

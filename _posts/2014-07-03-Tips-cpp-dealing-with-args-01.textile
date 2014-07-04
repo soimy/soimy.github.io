@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Tips[CPP] Dealing with args [Part.1]
+title: Dealing with args using getopt() [Part.1]
+
 categories: Coding Tips
 tags: getopt c++ argument workaround
 ---
@@ -12,12 +13,12 @@ p(meta). 3 July 2014 - Shanghai
 Everyone start to learn coding by helloworld.c :) Yes, it's the basic of digital daylife:
 *Command line*
 
-When dealing commandline style coding, every one need to manage the skill of controlling different kind of argument. It is really a dirty job by analyze
+When dealing commandline style coding, every one need to manage the skill of controlling different kind of argument. It is really a dirty job by analyzing
 {% highlight cpp %}
 int main(int argc, char *argv[])
 {% endhighlight %}
 
-But if you are familiar with POSIX style console command, it's argument definitions and help are so elegent and stylish.
+But if you are familiar with POSIX style console command, you'll find it's argument definitions and help are so elegent and stylish.
 !/images/2014-07-03/ssh-argument.png!
 
 Luckily we have a standard GNU C Library function called "getopt()":http://www.gnu.org/software/libc/manual/html_node/Getopt.html
@@ -47,7 +48,7 @@ while ((c = getopt (argc, argv, "abc:")) != -1)
             cvalue = atoi(optarg);
             break;
         case '?':
-		case ':':
+        case ':':
             if (optopt == 'c')
                 fprintf (stderr, "Option -%c requires an argument.\n", optopt);
             else if (isprint (optopt))
@@ -76,6 +77,6 @@ If you carefully read through the document, you will know the library will expos
 - optarg := This variable is set by getopt to point at the value of the option argument, for those options that accept arguments.
 
 Sounds like a beautiful story huh? But it do not have a happy ending.
-I will discuss the matter and workaround in the next thread.
+I will discuss the matter and workaround in the next thread: "Dealing with args using getopt() [Part.2]":{% post_url 2014-07-04-Tips-cpp-dealing-with-args-02 %}
 
 
