@@ -1,0 +1,33 @@
+{
+  "name": "symBLOG",
+  "version": "0.1.0",
+  "description": "code monkey growing dairy",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soimy/soimy.github.io"
+  },
+  "keywords": [
+    "blog",
+    "code",
+    "soimy",
+    "sym",
+    "github",
+    "photo",
+    "design",
+    "portolio"
+  ],
+  "author": "Shen Yiming",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soimy/soimy.github.io/issues"
+  },
+  "homepage": "https://github.com/soimy/soimy.github.io",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-responsive-images": "^0.1.3"
+  }
+}

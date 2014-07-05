@@ -15,9 +15,9 @@ Organizing my old photos is such a funny things. Occasionally I found an very ol
 
 If looking at it carefully, you will find the brower is on the page of a famous local forum called "KDS":http://kds.pchome.net . And the post indecated the date is 2003 !
 
-Yes, that time I just gratuated from "SJTU":http://www.sjtu.edu.cn/ and working at Shanghai TV Station as a *CGer*. Still a lot to learn: Maya, Shake, Mel develop etc. And I am the only one in our group working on a station running Linux desktop! That's a *{color:red} Redhat 9 * with KDE.
+Yes, that time I just gratuated from "SJTU":http://www.sjtu.edu.cn/ and working at Shanghai TV Station as a *CGer*. Still a lot to learn: Maya, Shake, Mel develop etc. And I am the only one in our group working on a station running Linux desktop! That's a * Redhat 9 * with KDE.
 
-Compare to the desktop environment now-a-days, it still look so elegent and effecient. My favorate linux distro. is *Debian* and like *FVWM2* desktop most.
+Compare to the desktop environment now-a-days, it still look so elegent and effecient. My favorate linux distro. is *Debian* with *FVWM2* desktop.
 
 How many 10 years do we still have?
 
