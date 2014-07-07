@@ -5,7 +5,7 @@ module.exports = function(grunt) {
       responsive_images: {
         myTask: {
           options: {
-			engin: im,
+			//engine:im,
             sizes: [{
                 name: 'phone',
                 width: 300
@@ -15,10 +15,10 @@ module.exports = function(grunt) {
                 suffix: '@2x'
             },{
                 name: 'tablet',
-                width: 760
+                width: 640
             },{
                 name: 'tablet',
-                width: 1520,
+                width: 1280,
                 suffix: '@2x'
             },{
                 name: 'desktop',
@@ -32,15 +32,15 @@ module.exports = function(grunt) {
           files: [{
             expand: true,
             src: ['**.{jpg,gif,png}'],
-            cwd: 'image/raw',
-            dest: 'image/resp/'
+            cwd: 'images/2013-09-03',
+            dest: 'images/resp/'
           }]
         }
       },
       responsive_images_converter: {
         default: {
             options: {
-                asset: '/image/resp/'
+                asset: '/images/resp/'
             },
             src: [ '_posts/**.md' ],
         }

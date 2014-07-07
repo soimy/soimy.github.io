@@ -1,0 +1,18 @@
+---
+layout : post
+title : FFT(Fast Fourier Trasnform) howto by rookie
+categories : coding
+tags : FFT c++ howto rookie
+---
+
+h1. {{ page.title }}
+
+p(meta). 7 July 2014 - Shanghai
+
+Our team is working on a multimedia project for *"new Shanghai Natural Museum":http://www.youtube.com/watch?v=7lHkavYwlPM *. One of the multimedia software was designed to simulate different kinds of animal sounds via mic and score it... I just wanna say: _"Well done Buddy! Imagine the museum hall full of all kinds of strange wuuuuf ;)"_
+
+As expected, we are unable to find any developer willing to take this strange job. So I decided to try it myself.
+
+Well, I admit I escaped from Math class in university just for playing CS. Don't ask me how I managed to pass the exams:) But now I'm facing the consequence.
+
+_(To be continued...)_

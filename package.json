@@ -28,6 +28,7 @@
   "homepage": "https://github.com/soimy/soimy.github.io",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-responsive-images": "^0.1.3"
+    "grunt-responsive-images": "^0.1.3",
+    "grunt-responsive-images-converter": "0.0.2"
   }
 }
